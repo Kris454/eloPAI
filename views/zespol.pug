@@ -1,0 +1,15 @@
+extends index
+
+block zespol
+    div(class='col-sm-10 text-left', id='srodek')
+        div(class='row')
+            div(class='albums')
+                ul
+                    li
+                        b Albumy:
+                        span &nbsp
+                        each item in albums
+                            li
+                                a(href='/Zespol/' + albums[0].Zespol + '/' + item.Nazwa) #{item.Nazwa}
+                                span &nbsp
+        block album

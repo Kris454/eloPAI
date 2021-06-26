@@ -1,0 +1,13 @@
+.albums {
+
+}
+
+.albumsContent-cover {
+    float: right;
+    text-align: center;
+}
+
+.albumsContent-list {
+    margin-left: 20px;
+    float: left;
+}

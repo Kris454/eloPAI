@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  div(class='title')
+    h1=  title
+  nav(class='navbar navbar-inverse')
+    div(class='container-fluid')
+      div(class='navbar-header')
+        button(type='button', class='navbar-toggle',data-toggle='collapse', data-target="#myNavbar")
+          span(class='icon-bar')
+      div(class='collapse navbar-collapse', id='myNavbar')
+        ul(class='nav navbar-nav')
+          li
+            a(href='/') Spis
+        ul(class='nav navbar-nav navbar-right')
+          li
+            if isAuthenticated
+              a(href='/Zarzadzaj') Zarządzaj
+          li
+            if isAuthenticated
+              a(href="/logout")
+                div.NavButton Log Out
+            else
+              a(href="/login")
+                div.NavButton Log in
+  div(class='container-fluid text-left')
+    div(class="row content")
+      div(class='col-sm-2 sidenav' id='lewo')
+        h2(class) Zespoły
+        ul(class='list-group')
+          each item in zespol
+            li(class='list-group-item')
+              a(href='/Zespol/' + item.Nazwa) #{item.Nazwa}
+      block zespol

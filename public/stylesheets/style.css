@@ -1,0 +1,53 @@
+*{
+  padding: 0px;
+  padding-left: 0px;
+  margin: 0px;
+}
+body {
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #4c555a;
+}
+div.title {
+}
+div#lewo{
+  border-style: solid;
+}
+li.list-group-item{
+
+
+}
+div#lewo > ul li{
+  list-style-type: none;
+
+}
+div.albums  {
+  height: 30px;
+  padding-left: 20px;
+  border-style: solid ;
+  border-width: 1px;
+  border-color: #4c555a;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+}
+div.albums > ul li{
+  float: left;
+  list-style-type: none;
+  margin-left: 0px;
+}
+div#lista{
+  padding-left: 25px;
+}
+div#srodek {
+  height:75vh;
+  border-style: solid;
+}
+div#srodek > div.albums > ul li{
+  color: #ff0000;
+}

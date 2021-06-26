@@ -1,0 +1,77 @@
+extends layout
+
+block content
+    div(class='title')
+        h1=  title
+    nav(class='navbar navbar-inverse')
+        div(class='container-fluid')
+            div(class='navbar-header')
+                button(type='button', class='navbar-toggle',data-toggle='collapse', data-target="#myNavbar")
+                    span(class='icon-bar')
+            div(class='collapse navbar-collapse', id='myNavbar')
+                ul(class='nav navbar-nav')
+                    li
+                        a(href='/') Spis
+                ul(class='nav navbar-nav navbar-right')
+                    li
+                        a(href='/Zarzadzaj') Zarządzaj
+                    li
+                        if isAuthenticated
+                            a(href="/logout")
+                                div.NavButton Log Out
+                        else
+                            a(href="/login")
+                                div.NavButton Log in
+    div(class='container-fluid text-left')
+        b Dodaj zespol
+        form(method="POST" action="/Dodaj_zespol")
+            t  Nazwa
+            input(type="text" name="Nazwazespolu")
+            t  Rok założenia
+            input(type="text" name="Rokzalozenia")
+            t  Kraj
+            input(type="text" name="Kraj")
+            input(type="submit")
+        b Dodaj album
+        form(method="POST" action="/Dodaj_album")
+            t Zespoł
+            select(name="Zespol")
+                each item in zespol
+                    option(value=item.ID) #{item.Nazwa}
+            t Nazwa
+            input(type="text" name="Nazwaalbumu")
+            t  Data wydania
+            input(type="text" name="Datawydania")
+            t  Czas Trwania
+            input(type="text" name="Czastrwania")
+            t  Gatunek
+            input(type="text" name="Gatunek")
+            input(type="submit" )
+        b Dodaj utwor
+        br
+        form(method="POST" action="/Dodaj_utwor")
+            t Album
+            select(name="Album")
+                each item in album
+                    option(value=item.ID) #{item.Nazwa}
+            br
+            button(type='button', class='btn' onclick='add()') +
+            script.
+                function add(){
+                    console.log("qqq");
+                    $("#utwory").append('Nazwa: <input type="text" name="Nazwautworu">Czas trwania: <input type="text" name="Czasutworu"><br>');
+                }
+            div#utwory
+            input(type="submit")
+        b Usun album
+        form(method="POST" action="/Usun_album")
+            select(name="Album_usun")
+                each item in album
+                    option(value=item.ID) #{item.Nazwa}
+            input(type="submit")
+        b Usun zespol
+        form(method="POST" action="/Usun_zespol")
+            select(name="Zespol_usun")
+                each item in zespol
+                    option(value=item.ID) #{item.Nazwa}
+            input(type="submit")

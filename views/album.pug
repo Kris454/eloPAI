@@ -1,0 +1,18 @@
+extends zespol
+block album
+    div(class='row' id='lista')
+        div(class='col-6 col-sm-9' id='list-inner')
+            h4 Info:
+                b #{albumss[0].Nazwa}
+            p  Data wydania: #{albumss[0].Data_wydania}
+            p  Gatunek: #{albumss[0].Gatunek}
+            albums
+            br
+            h4 Lista utworów
+            ol
+                each item in track
+                    li #{item.Nazwa} #{item.Czas_trwania}
+        div(class='col-4 offset-md-4' id='cover')
+            img.image(src='' + albumCoverUrl )
+            a(href= albumLink )
+                img(src=icon)
